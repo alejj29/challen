@@ -1,0 +1,94 @@
+<h2 mat-dialog-title>{{ tituloAccion }} Condicion Laboral</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="formularioCl">
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Codigo</mat-label>
+          <input matInput autocomplete="off" formControlName="codigo" />
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput autocomplete="off" formControlName="nombre" />
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>HorasMensualesMaximo</mat-label>
+          <input matInput autocomplete="off" formControlName="HorasMensualesMaximo" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>HorasMensualesMinimo</mat-label>
+          <input matInput autocomplete="off" formControlName="HorasMensualesMinimo" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>HorasDiariasMaximo</mat-label>
+          <input matInput autocomplete="off" formControlName="HorasDiariasMaximo" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>HorasDiariasMinimo</mat-label>
+          <input matInput autocomplete="off" formControlName="HorasDiariasMinimo" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>DiasDescansoMaximo</mat-label>
+          <input matInput autocomplete="off" formControlName="DiasDescansoMaximo" />
+          <mat-icon matSuffix>calendar_view_day</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>DiasDescansoGD</mat-label>
+          <input matInput autocomplete="off" formControlName="DiasDescansoGD" />
+          <mat-icon matSuffix>calendar_view_day</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>DiasDescansoGN</mat-label>
+          <input matInput autocomplete="off" formControlName="DiasDescansoGN" />
+          <mat-icon matSuffix>calendar_view_day</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Combinacion Guardias</mat-label>
+          <mat-select placeholder="" formControlName="CombineGuardRule">
+            <mat-option value="1">Activo Guardia</mat-option>
+            <mat-option value="0">No Activo Guardia</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="formularioCl.invalid"
+    (click)="guardarEditar_Cl()"
+  >
+    {{ botonAccion }}
+  </button>
+</mat-dialog-actions>

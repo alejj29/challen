@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>{{ tituloAccion }} Condicion Laboral</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="formularioCl">
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo Vehiculo</mat-label>
+          <input matInput autocomplete="off" formControlName="TipoVehiculo" />
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Patente</mat-label>
+          <input matInput autocomplete="off" formControlName="Patente" />
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Marca</mat-label>
+          <input matInput autocomplete="off" formControlName="Marca" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Modelo</mat-label>
+          <input matInput autocomplete="off" formControlName="Modelo" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Color</mat-label>
+          <input matInput autocomplete="off" formControlName="Color" />
+          <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="formularioCl.invalid"
+    (click)="guardarEditar_Cl()"
+  >
+    {{ botonAccion }}
+  </button>
+</mat-dialog-actions>

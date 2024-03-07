@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>Sistema Peru</h1>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px">
+
+    <mat-nav-list>
+      <mat-list-item routerLink="/viaje">
+        <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+        <div mat-line>Viaje</div>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item routerLink="/ciudad">
+        <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+        <div mat-line>Ciudad</div>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item routerLink="/vehiculo">
+        <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+        <div mat-line>Vehiculo</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 90vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

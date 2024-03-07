@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>{{ tituloAccion }} Viajes</h2>
+
+
+  <form [formGroup]="formularioCl">
+
+
+
+
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Salida</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="FechaSalida" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker  ></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Llegada</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="FechaLlegada" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1  ></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Vehículo</mat-label>
+          <mat-select formControlName="VehiculoID">
+            <mat-option *ngFor="let vehiculo of vehiculosLista" [value]="vehiculo.vehiculoID">
+              {{ vehiculo.tipoVehiculo }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>directions_car</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Ciudad De Origen</mat-label>
+          <mat-select formControlName="CiudadOrigenID">
+            <mat-option *ngFor="let ciudad of ciudadLista" [value]="ciudad.ciudadID">
+              {{ ciudad.nombreCiudad }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>directions_car</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Ciudad Destino</mat-label>
+          <mat-select formControlName="CiudadDestinoID">
+            <mat-option *ngFor="let ciudad of ciudadListaDestino" [value]="{ ciudadID: ciudad.ciudadID, nombreCiudad: ciudad.nombreCiudad }">
+              {{ ciudad.nombreCiudad }}
+            </mat-option>
+
+          </mat-select>
+          <mat-icon matSuffix>directions_car</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button mat-raised-button color="primary" [disabled]="formularioCl.invalid" (click)="guardarEditar_Cl()">
+    {{ botonAccion }}
+  </button>
+</mat-dialog-actions>
